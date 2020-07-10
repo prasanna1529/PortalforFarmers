@@ -1,0 +1,209 @@
+import java.util.*;
+/*public class Main{
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Category obj=new Category();
+		obj.showMenu();
+	}
+
+}*/
+public class Category{
+	static int totalsum=0;
+	static int fruitsum=0;
+	static int vegsum=0;
+	static int spisum=0;
+	private static void placeOrder() {
+		int option,i=0;
+		if(i==0) {
+			System.out.println("Menu\n 1.Fruits\n 2.vegetables\n 3.spices\n 4 Exit");
+			i++;
+		}
+	do {
+		Scanner sc = new Scanner(System.in);
+		option = sc.nextInt();
+	switch(option) {
+		case 1:
+			fruits();
+			break;
+		case 2:
+			vegies();
+			break;
+		case 3:
+			spices();
+			break;
+		case 4:
+			showMenu();
+			break;
+		}
+	}while(option>=1&&option<=4);
+	}
+	//fruit method
+	public static void fruits() {
+		int choice=0;
+		System.out.println("Choose\n1.Apple\n2.Orange\n3.Banana\n4.MainMenu");
+	do {
+		Scanner sc = new Scanner(System.in);
+		choice=sc.nextInt();
+		int q=0,bp=0;
+		switch(choice) {
+		case 1:
+			System.out.println("Enter quantity of Apple:");
+			q=sc.nextInt();
+			bp=50;
+			break;
+		case 2:
+			System.out.println("Enter quantity of Orange:");
+			q=sc.nextInt();
+			bp=40;
+			break;
+		case 3:
+			System.out.println("Enter quantity of Banana:");
+			q=sc.nextInt();
+			bp=40;
+			break;
+		case 4:
+			placeOrder();
+			break;
+		}
+		for(int i=1;i<=q;i++) {
+			fruitsum+=bp;
+		}
+	}while(choice<5);
+	totalsum+=vegsum;
+	}
+	public static void vegies() {
+		int choice=0;
+		System.out.println("Choose\n1.Tomato\n2.Potato\n.3.carrot\n.4.Beans\n5.MainMenu");
+		do {
+		Scanner sc = new Scanner(System.in);
+		choice=sc.nextInt();
+		int q=0,bp=0;
+		switch(choice){
+		case 1:
+			System.out.println("Enter Quantity of Tomato:");
+			q=sc.nextInt();
+			bp=50;
+			break;
+		case 2:
+			System.out.println("Enter Quantity of Potato:");
+			q=sc.nextInt();
+			bp=40;
+			break;
+		case 3:
+			System.out.println("Enter Quantity of Carrot:");
+			q=sc.nextInt();
+			bp=60;
+			break;
+		case 4:
+			System.out.println("Enter Quantity of Beans:");
+			q=sc.nextInt();
+			bp=28;
+			break;
+		case 5:
+			placeOrder();
+			break;
+		}
+		for(int i=1;i<=q;i++) {
+			vegsum+=bp;
+		}
+	}while(choice<5);
+		totalsum+=vegsum;		
+}
+	public static void spices() {
+		int choice=0;
+		System.out.println("Choose\n1.Chilli\n2.Turmeric\n.3.Pepper\n.4.CorrianderSeeds\n5.MainMenu");
+		do {
+		Scanner sc = new Scanner(System.in);
+		choice=sc.nextInt();
+		int q=0,bp=0;
+		switch(choice){
+		case 1:
+			System.out.println("Enter Quantity of Chilli:");
+			q=sc.nextInt();
+			bp=70;
+			break;
+		case 2:
+			System.out.println("Enter Quantity of Turmeric:");
+			q=sc.nextInt();
+			bp=40;
+			break;
+		case 3:
+			System.out.println("Enter Quantity of Pepper:");
+			q=sc.nextInt();
+			bp=80;
+			break;
+		case 4:
+			System.out.println("Enter Quantity of CorrianderSeeds:");
+			q=sc.nextInt();
+			bp=75;
+			break;
+		case 5:
+			placeOrder();
+			break;
+		}
+		for(int i=1;i<=q;i++) {
+			spisum+=bp;
+		}
+	}while(choice<5);
+		totalsum+=spisum;		
+}
+	protected static void showMenu()
+	{
+		int i=0;
+		if(i==0){
+		System.out.println("Welcome to Portal for Farmers!!!");
+		System.out.println("1.placeOrder\n2.ViewCart\n3.Contact\n4.exit");
+		i++;
+		}
+		int option;
+		
+		do {
+			Scanner sc = new Scanner(System.in);
+			option = sc.nextInt();
+			switch(option) {
+			case 1:
+				placeOrder();
+				break;
+			case 2:
+				viewCart();
+				break;
+			case 3:
+				contactUs();
+				break;
+			case 4:
+				viewCart();
+				System.out.println("Thanks for Your Visit!!!Come Again!!!");
+				break;
+			default:
+				System.out.println("Invalid option!!Enter a valid one!!!");
+			}
+		}while(option<=4);
+	}
+	private static void viewCart() {
+		System.out.println("Your Order:");
+		if(fruitsum!=0) {
+			System.out.println("Fruits : "+fruitsum);
+		}
+		if(vegsum!=0) {
+			System.out.println("Vegetables : "+vegsum);
+		}
+		if(spisum!=0) {
+			System.out.println("Spices : "+spisum);
+		}
+		System.out.println("your Total Order Amount : "+(fruitsum+vegsum+spisum));
+			
+	}
+	private static void contactUs() {
+		System.out.println("Contact us for HomeDelivery @1234567");
+		System.out.println("WhatsApp your Order @234567");
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("\f");
+		Category obj=new Category();
+		obj.showMenu();
+	}
+	
+}
+
